@@ -71,3 +71,33 @@ let quantity: Quantity = 100;
 
  type Metric = 'cm' | 'inch';
 
+/// nullable
+// union type
+function greet(name:string | null | undefined) {
+  if(name)
+    console.log(name.toUpperCase());
+  else
+    console.log('Hola');
+}
+
+greet(null);
+
+
+
+
+// Optional Chaining
+// type Aliases
+type Customer = {
+  birthday?: Date
+}
+
+function getCustomer(id:number): Customer | null | undefined {
+  return id === 0 ? null : {
+    birthday: new Date()
+  }
+}
+
+let customer = getCustomer(1);
+
+console.log(customer?.birthday?.getFullYear());
+
