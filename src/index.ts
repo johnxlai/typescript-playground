@@ -124,9 +124,11 @@ function render(document: unknown) {
 }
 
   //the never type
-  function processEvents() {
+  function processEvents():never{
     while(true) {
       //read a message from a queue
 
     }
   }
+
+
