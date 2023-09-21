@@ -8,3 +8,9 @@ let numbers: number[] = [];
 // tuples
 //1, 'Mosh'
 let user:[number, string] = [1, 'mosh'];
+
+
+//Enums
+const enum Size { Small = 1, Medium, Large}
+let mySize: Size = Size.Medium;
+console.log(mySize);
