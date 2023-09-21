@@ -98,6 +98,16 @@ function getCustomer(id:number): Customer | null | undefined {
 }
 
 let customer = getCustomer(1);
-
 console.log(customer?.birthday?.getFullYear());
+
+// Nullish Coaelscing Operator
+let speed: number | null = null;
+let ride = {
+  speed: speed ?? 30
+}
+
+
+// type assertions (telling ts we know more than you so it allows more method to show up in the element)
+let phone = document.getElementById('phone') as HTMLInputElement;
+phone.value
 
