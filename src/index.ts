@@ -36,3 +36,32 @@ let employee: Employee = { id: 1, name: 'Mosh', retire: (date:Date) => {
 }};
 
 
+//Union Type - Can be anything
+function kgToLbs(weight:number | string): number {
+  //Narrowing
+  if(typeof weight === 'number')
+    return weight *2.2
+  else {
+    return parseFloat(weight) * 2.2;
+  }
+};
+kgToLbs(10);
+kgToLbs('10kgs');
+
+
+// Intersection Types
+type Draggable = {
+  drag:() => void
+};
+
+type Resizable = {
+  resize: () => void
+};
+
+type UiWidget = Draggable & Resizable;
+
+let textBox: UiWidget = {
+  drag: () => {},
+  resize: () => {}
+}
+
