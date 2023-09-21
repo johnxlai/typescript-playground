@@ -23,10 +23,16 @@ function calculateTax(income:number):number {
   return income * 1.3;
 }
 
-//Objects
-let employee: {
+// type Aliases
+type Employee = {
   readonly id:number,
   name:string,
   retire:(date: Date) => void;
-} = { id: 1, name: 'Mosh'};
+}
+
+//Objects
+let employee: Employee = { id: 1, name: 'Mosh', retire: (date:Date) => {
+  console.log(date)
+}};
+
 
