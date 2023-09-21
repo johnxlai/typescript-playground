@@ -109,5 +109,24 @@ let ride = {
 
 // type assertions (telling ts we know more than you so it allows more method to show up in the element)
 let phone = document.getElementById('phone') as HTMLInputElement;
-phone.value
 
+// same thing
+// let phone = <HTMLInputElement> document.getElementById('phone') ;
+phone.value;
+
+//The unknown type
+function render(document: unknown) {
+  //Narrowing
+  if(typeof document === 'string'){
+    document.toUpperCase();
+  }
+  document.move();
+}
+
+  //the never type
+  function processEvents() {
+    while(true) {
+      //read a message from a queue
+
+    }
+  }
