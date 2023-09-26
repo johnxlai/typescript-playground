@@ -108,11 +108,11 @@ let ride = {
 
 
 // type assertions (telling ts we know more than you so it allows more method to show up in the element)
-let phone = document.getElementById('phone') as HTMLInputElement;
+// let phone = document.getElementById('phone') as HTMLInputElement;
 
 // same thing
 // let phone = <HTMLInputElement> document.getElementById('phone') ;
-phone.value;
+// phone.value;
 
 //The unknown type
 function render(document: unknown) {
@@ -135,7 +135,7 @@ function render(document: unknown) {
 // Typescript Classes
 
 class Account {
-  id: number;
+  readonly id: number;
   owner:string;
   balance: number;
 
@@ -150,5 +150,7 @@ class Account {
         throw new Error("Invaild amount");
       this.balance += amount;
   }
-
 }
+let account = new Account(1, 'John', 0);
+account.deposit(100);
+console.log(account.balance)

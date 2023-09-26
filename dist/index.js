@@ -49,8 +49,6 @@ let speed = null;
 let ride = {
     speed: speed !== null && speed !== void 0 ? speed : 30
 };
-let phone = document.getElementById('phone');
-phone.value;
 function render(document) {
     if (typeof document === 'string') {
         document.toUpperCase();
@@ -72,4 +70,7 @@ class Account {
         this.balance += amount;
     }
 }
+let account = new Account(1, 'John', 0);
+account.deposit(100);
+console.log(account.balance);
 //# sourceMappingURL=index.js.map
