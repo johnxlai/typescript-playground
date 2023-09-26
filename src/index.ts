@@ -137,20 +137,23 @@ function render(document: unknown) {
 class Account {
   readonly id: number;
   owner:string;
-  balance: number;
+  private _balance: number;
+  nickname?: string;
 
   constructor(id:number, owner: string, balance: number) {
     this.id = id;
     this.owner = owner;
-    this.balance = balance;
+    this._balance = balance;
   }
 
   deposit(amount:number):void{
       if(amount <= 0)
         throw new Error("Invaild amount");
-      this.balance += amount;
+
+      // Record a trascation
+      this._balance += amount;
   }
 }
 let account = new Account(1, 'John', 0);
 account.deposit(100);
-console.log(account.balance)
+console.log(account._balance)
