@@ -62,15 +62,18 @@ class Account {
     constructor(id, owner, balance) {
         this.id = id;
         this.owner = owner;
-        this.balance = balance;
+        this._balance = balance;
     }
     deposit(amount) {
         if (amount <= 0)
             throw new Error("Invaild amount");
-        this.balance += amount;
+        this._balance += amount;
+    }
+    getBalance() {
+        return this._balance;
     }
 }
 let account = new Account(1, 'John', 0);
 account.deposit(100);
-console.log(account.balance);
+console.log(account.getBalance);
 //# sourceMappingURL=index.js.map

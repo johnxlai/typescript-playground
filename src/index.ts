@@ -153,7 +153,14 @@ class Account {
       // Record a trascation
       this._balance += amount;
   }
+
+  private calcTax(){
+  }
+
+  getBalance():number {
+    return this._balance;
+  }
 }
 let account = new Account(1, 'John', 0);
 account.deposit(100);
-console.log(account._balance)
+console.log(account.getBalance)
