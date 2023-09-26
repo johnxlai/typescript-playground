@@ -74,8 +74,21 @@ class Account {
     if (amount <= 0) throw new Error('Invaild amount');
     this.balance += amount;
   }
+
+  get balance(): number {
+    return this.balance;
+  }
 }
 let account = new Account(1, 'John', 0);
 account.deposit(100);
 console.log(account.balance);
 //# sourceMappingURL=index.js.map
+
+//Index Signatures
+class SeatAssignment {
+  [seatNumber:string]: String;
+}
+
+let seats = new SeatAssignment();
+seats.A1 = 'Mosh';
+seats.A2 = 1;
