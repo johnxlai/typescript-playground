@@ -1,94 +1,32 @@
-'use strict';
-var _a;
-let sales = 1234565789;
-let course = 'TypeScript';
-let is_published;
-let level;
-let numbers = [];
-let user = [1, 'mosh'];
-let mySize = 2;
-console.log(mySize);
-function calculateTax(income) {
-  if (income < 50000) return income * 1.2;
-  return income * 1.3;
+"use strict";
+class Person {
+    constructor(firstName, lastName) {
+        this.firstName = firstName;
+        this.lastName = lastName;
+    }
+    get fullName() {
+        return this.firstName + ' ' + this.lastName;
+    }
+    walk() {
+        console.log('walking');
+    }
 }
-let employee = {
-  id: 1,
-  name: 'Mosh',
-  retire: (date) => {
-    console.log(date);
-  },
-};
-function kgToLbs(weight) {
-  if (typeof weight === 'number') return weight * 2.2;
-  else {
-    return parseFloat(weight) * 2.2;
-  }
+class Student extends Person {
+    constructor(studentId, firstName, lastName) {
+        super(firstName, lastName);
+        this.studentId = studentId;
+    }
+    takeTest() {
+        console.log('taking test');
+    }
 }
-kgToLbs(10);
-kgToLbs('10kgs');
-let textBox = {
-  drag: () => {},
-  resize: () => {},
-};
-let quantity = 100;
-function greet(name) {
-  if (name) console.log(name.toUpperCase());
-  else console.log('Hola');
+let student = new Student(1, 'John', 'john@gmail.com');
+student.takeTest();
+class Teacher extends Person {
+    get fullName() {
+        return 'Professor' + super.fullName;
+    }
 }
-greet(null);
-function getCustomer(id) {
-  return id === 0
-    ? null
-    : {
-        birthday: new Date(),
-      };
-}
-let customer = getCustomer(1);
-console.log(
-  (_a =
-    customer === null || customer === void 0 ? void 0 : customer.birthday) ===
-    null || _a === void 0
-    ? void 0
-    : _a.getFullYear()
-);
-let speed = null;
-let ride = {
-  speed: speed !== null && speed !== void 0 ? speed : 30,
-};
-function render(document) {
-  if (typeof document === 'string') {
-    document.toUpperCase();
-  }
-}
-function processEvents() {
-  while (true) {}
-}
-class Account {
-  constructor(id, owner, balance) {
-    this.id = id;
-    this.owner = owner;
-    this.balance = balance;
-  }
-  deposit(amount) {
-    if (amount <= 0) throw new Error('Invaild amount');
-    this.balance += amount;
-  }
-
-  get balance(): number {
-    return this.balance;
-  }
-}
-let account = new Account(1, 'John', 0);
-account.deposit(100);
-console.log(account.balance);
+let teacher = new Teacher('John', 'Doe');
+console.log(teacher.fullName);
 //# sourceMappingURL=index.js.map
-
-//Index Signatures
-class SeatAssignment {
-  [seatNumber:string]: String;
-}
-
-let seats = new SeatAssignment();
-seats.A1 = 'Mosh';
-seats.A2 = 1;

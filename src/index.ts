@@ -1,193 +1,193 @@
-let sales = 123_456_5789;
-let course = 'TypeScript';
-let is_published: true;
-let level;
-let numbers: number[] = [];
+// let sales = 123_456_5789;
+// let course = 'TypeScript';
+// let is_published: true;
+// let level;
+// let numbers: number[] = [];
 
 
-// tuples
-//1, 'Mosh'
-let user:[number, string] = [1, 'mosh'];
+// // tuples
+// //1, 'Mosh'
+// let user:[number, string] = [1, 'mosh'];
 
 
-//Enums
-const enum Size { Small = 1, Medium, Large}
-let mySize: Size = Size.Medium;
-console.log(mySize);
+// //Enums
+// const enum Size { Small = 1, Medium, Large}
+// let mySize: Size = Size.Medium;
+// console.log(mySize);
 
-//functions
-function calculateTax(income:number):number {
-  if (income < 50_000)
-    return income * 1.2;
+// //functions
+// function calculateTax(income:number):number {
+//   if (income < 50_000)
+//     return income * 1.2;
 
-  return income * 1.3;
-}
+//   return income * 1.3;
+// }
 
-// type Aliases
-type Employee = {
-  readonly id:number,
-  name:string,
-  retire:(date: Date) => void;
-}
+// // type Aliases
+// type Employee = {
+//   readonly id:number,
+//   name:string,
+//   retire:(date: Date) => void;
+// }
 
-//Objects
-let employee: Employee = { id: 1, name: 'Mosh', retire: (date:Date) => {
-  console.log(date)
-}};
-
-
-//Union Type - Can be anything
-function kgToLbs(weight:number | string): number {
-  //Narrowing
-  if(typeof weight === 'number')
-    return weight *2.2
-  else {
-    return parseFloat(weight) * 2.2;
-  }
-};
-kgToLbs(10);
-kgToLbs('10kgs');
+// //Objects
+// let employee: Employee = { id: 1, name: 'Mosh', retire: (date:Date) => {
+//   console.log(date)
+// }};
 
 
-// Intersection Types
-type Draggable = {
-  drag:() => void
-};
-
-type Resizable = {
-  resize: () => void
-};
-
-type UiWidget = Draggable & Resizable;
-
-let textBox: UiWidget = {
-  drag: () => {},
-  resize: () => {}
-}
-
-// Literal Types (limited value, exact or specific);
-type Quantity = 50 | 100;
-let quantity: Quantity = 100;
-
- type Metric = 'cm' | 'inch';
-
-/// nullable
-// union type
-function greet(name:string | null | undefined) {
-  if(name)
-    console.log(name.toUpperCase());
-  else
-    console.log('Hola');
-}
-
-greet(null);
+// //Union Type - Can be anything
+// function kgToLbs(weight:number | string): number {
+//   //Narrowing
+//   if(typeof weight === 'number')
+//     return weight *2.2
+//   else {
+//     return parseFloat(weight) * 2.2;
+//   }
+// };
+// kgToLbs(10);
+// kgToLbs('10kgs');
 
 
+// // Intersection Types
+// type Draggable = {
+//   drag:() => void
+// };
+
+// type Resizable = {
+//   resize: () => void
+// };
+
+// type UiWidget = Draggable & Resizable;
+
+// let textBox: UiWidget = {
+//   drag: () => {},
+//   resize: () => {}
+// }
+
+// // Literal Types (limited value, exact or specific);
+// type Quantity = 50 | 100;
+// let quantity: Quantity = 100;
+
+//  type Metric = 'cm' | 'inch';
+
+// /// nullable
+// // union type
+// function greet(name:string | null | undefined) {
+//   if(name)
+//     console.log(name.toUpperCase());
+//   else
+//     console.log('Hola');
+// }
+
+// greet(null);
 
 
-// Optional Chaining
-// type Aliases
-type Customer = {
-  birthday?: Date
-}
-
-function getCustomer(id:number): Customer | null | undefined {
-  return id === 0 ? null : {
-    birthday: new Date()
-  }
-}
-
-let customer = getCustomer(1);
-console.log(customer?.birthday?.getFullYear());
-
-// Nullish Coaelscing Operator
-let speed: number | null = null;
-let ride = {
-  speed: speed ?? 30
-}
 
 
-// type assertions (telling ts we know more than you so it allows more method to show up in the element)
-// let phone = document.getElementById('phone') as HTMLInputElement;
+// // Optional Chaining
+// // type Aliases
+// type Customer = {
+//   birthday?: Date
+// }
 
-// same thing
-// let phone = <HTMLInputElement> document.getElementById('phone') ;
-// phone.value;
+// function getCustomer(id:number): Customer | null | undefined {
+//   return id === 0 ? null : {
+//     birthday: new Date()
+//   }
+// }
 
-//The unknown type
-function render(document: unknown) {
-  //Narrowing
-  if(typeof document === 'string'){
-    document.toUpperCase();
-  }
-  // document.move();
-}
+// let customer = getCustomer(1);
+// console.log(customer?.birthday?.getFullYear());
 
-  //the never type
-  function processEvents():never{
-    while(true) {
-      //read a message from a queue
-
-    }
-  }
+// // Nullish Coaelscing Operator
+// let speed: number | null = null;
+// let ride = {
+//   speed: speed ?? 30
+// }
 
 
-// Typescript Classes
+// // type assertions (telling ts we know more than you so it allows more method to show up in the element)
+// // let phone = document.getElementById('phone') as HTMLInputElement;
 
-class Account {
-  nickname?: string;
+// // same thing
+// // let phone = <HTMLInputElement> document.getElementById('phone') ;
+// // phone.value;
 
-  constructor(
-    public readonly id:number,
-    public owner: string,
-    private balance: number) {
-  }
+// //The unknown type
+// function render(document: unknown) {
+//   //Narrowing
+//   if(typeof document === 'string'){
+//     document.toUpperCase();
+//   }
+//   // document.move();
+// }
 
-  deposit(amount:number):void{
-      if(amount <= 0)
-        throw new Error("Invaild amount");
+//   //the never type
+//   function processEvents():never{
+//     while(true) {
+//       //read a message from a queue
 
-      // Record a trascation
-      this._balance += amount;
-  }
-
-  private calcTax(){
-  }
-
-  getBalance():number {
-    return this._balance;
-  }
-}
-let account = new Account(1, 'John', 0);
-account.deposit(100);
-console.log(account.getBalance)
+//     }
+//   }
 
 
-//index signatures
-class SeatAssignment {
-  //index signature property
-  [seatNumber: string]: string;
-}
+// // Typescript Classes
 
-let seats = new SeatAssignment();
-seats.A1 = 'Steve';
+// class Account {
+//   nickname?: string;
 
-//static members
-//only one instance of the class
-class Ride {
-  private static _activeRides: number = 0;
+//   constructor(
+//     public readonly id:number,
+//     public owner: string,
+//     private balance: number) {
+//   }
 
-  start() {Ride.activeRides++;}
-  stopp() {Ride.activeRides--;}
+//   deposit(amount:number):void{
+//       if(amount <= 0)
+//         throw new Error("Invaild amount");
 
-  static get activeRides() {
-    return Ride._activeRides;
-  }
-}
+//       // Record a trascation
+//       this._balance += amount;
+//   }
 
-let ride1 = new Ride();
-ride1.start()
-console.log(Ride.activeRides);
+//   private calcTax(){
+//   }
+
+//   getBalance():number {
+//     return this._balance;
+//   }
+// }
+// let account = new Account(1, 'John', 0);
+// account.deposit(100);
+// console.log(account.getBalance)
+
+
+// //index signatures
+// class SeatAssignment {
+//   //index signature property
+//   [seatNumber: string]: string;
+// }
+
+// let seats = new SeatAssignment();
+// seats.A1 = 'Steve';
+
+// //static members
+// //only one instance of the class
+// class Ride {
+//   private static _activeRides: number = 0;
+
+//   start() {Ride.activeRides++;}
+//   stopp() {Ride.activeRides--;}
+
+//   static get activeRides() {
+//     return Ride._activeRides;
+//   }
+// }
+
+// let ride1 = new Ride();
+// ride1.start()
+// console.log(Ride.activeRides);
 
 
 //Inheritance
@@ -217,3 +217,13 @@ let student = new Student(1, 'John', 'john@gmail.com');
 student.takeTest();
 
 
+//method overriding
+class Teacher extends Person {
+  override get fullName()  {
+    return 'Professor' + super.fullName;
+  }
+}
+
+
+let teacher = new Teacher('John', 'Doe');
+console.log(teacher.fullName);
