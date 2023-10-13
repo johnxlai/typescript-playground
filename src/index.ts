@@ -171,3 +171,20 @@ class SeatAssignment {
 
 let seats = new SeatAssignment();
 seats.A1 = 'Steve';
+
+//static members
+//only one instance of the class
+class Ride {
+  private static _activeRides: number = 0;
+
+  start() {Ride.activeRides++;}
+  stopp() {Ride.activeRides--;}
+
+  static get activeRides() {
+    return Ride._activeRides;
+  }
+}
+
+let ride1 = new Ride();
+ride1.start()
+console.log(Ride.activeRides);
