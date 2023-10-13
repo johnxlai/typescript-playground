@@ -161,3 +161,13 @@ class Account {
 let account = new Account(1, 'John', 0);
 account.deposit(100);
 console.log(account.getBalance)
+
+
+//index signatures
+class SeatAssignment {
+  //index signature property
+  [seatNumber: string]: string;
+}
+
+let seats = new SeatAssignment();
+seats.A1 = 'Steve';
