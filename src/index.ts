@@ -1,3 +1,9 @@
+let sales: number = 123_456_789;
+let course: string = 'TypeScript';
+let is_published: boolean = true;
+
+// dont need to annotate types, typescript will infer it
+
 // let sales = 123_456_5789;
 // let course = 'TypeScript';
 // let is_published: true;
@@ -213,17 +219,17 @@ class Student extends Person {
 }
 
 
-let student = new Student(1, 'John', 'john@gmail.com');
-student.takeTest();
+// let student = new Student(1, 'John', 'john@gmail.com');
+// student.takeTest();
 
 
-//method overriding
-class Teacher extends Person {
-  override get fullName()  {
-    return 'Professor' + super.fullName;
-  }
-}
+// //method overriding
+// class Teacher extends Person {
+//   override get fullName()  {
+//     return 'Professor' + super.fullName;
+//   }
+// }
 
 
-let teacher = new Teacher('John', 'Doe');
-console.log(teacher.fullName);
+// let teacher = new Teacher('John', 'Doe');
+// console.log(teacher.fullName);
