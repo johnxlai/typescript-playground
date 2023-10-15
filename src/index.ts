@@ -242,18 +242,24 @@ let is_published: boolean = true;
 
 // ts classes
 class Account  {
-  id:number;
-  owner:  string;
-  balanace: number;
+  nickname?: string;
 
-  constructor(id:number, owner:string, balance:number) {
-    this.id = id;
-    this.owner = owner;
-    this.balanace = balance;
+  //parameter properties
+  constructor(
+      public readonly id:number,
+      public owner:string,
+      private _balance:number) {
   }
   deposit(amount:number):void {
     if(amount <= 0)
       throw new Error("Invalid amount");
-    this.balanace += amount;
+    this._balance += amount;
+  }
+  getBalance():number {
+    return this._balance;
   }
 }
+
+let account = new Account(1, 'John', 0);
+account.deposit(100);
+console.log(account.getBalance());
