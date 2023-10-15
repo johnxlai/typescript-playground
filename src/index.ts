@@ -255,11 +255,19 @@ class Account  {
       throw new Error("Invalid amount");
     this._balance += amount;
   }
-  getBalance():number {
+  //getter and setters
+  get balance():number {
     return this._balance;
   }
 }
 
 let account = new Account(1, 'John', 0);
 account.deposit(100);
-console.log(account.getBalance());
+console.log(account.balance);
+
+//Index signature propertry
+class SeatAssignment {
+  [seatNumber: string] : string;
+}
+let seats = new SeatAssignment();
+seats['A1'] = 'John';
