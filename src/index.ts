@@ -124,6 +124,8 @@ let is_published: boolean = true;
 // // let phone = <HTMLInputElement> document.getElementById('phone') ;
 // // phone.value;
 
+// This doesn't convert the type, it just tells the compiler to trust you that the type is correct. If you're wrong, you'll get a runtime error.
+
 // //The unknown type
 // function render(document: unknown) {
 //   //Narrowing
