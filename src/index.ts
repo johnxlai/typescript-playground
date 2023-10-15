@@ -203,26 +203,26 @@ let is_published: boolean = true;
 
 
 //Inheritance
-class Person {
-  constructor(public firstName: string, public lastName: string) {
-  }
-  get fullName() {
-    return this.firstName + ' ' + this.lastName;
-  }
+// class Person {
+//   constructor(public firstName: string, public lastName: string) {
+//   }
+//   get fullName() {
+//     return this.firstName + ' ' + this.lastName;
+//   }
 
-  walk() {
-    console.log('walking');
-  }
-}
+//   walk() {
+//     console.log('walking');
+//   }
+// }
 
-class Student extends Person {
-  constructor( public studentId: number, firstName: string, lastName: string) {
-    super(firstName, lastName);
-  }
-  takeTest() {
-    console.log('taking test');
-  }
-}
+// class Student extends Person {
+//   constructor( public studentId: number, firstName: string, lastName: string) {
+//     super(firstName, lastName);
+//   }
+//   takeTest() {
+//     console.log('taking test');
+//   }
+// }
 
 
 // let student = new Student(1, 'John', 'john@gmail.com');
@@ -239,3 +239,21 @@ class Student extends Person {
 
 // let teacher = new Teacher('John', 'Doe');
 // console.log(teacher.fullName);
+
+// ts classes
+class Account  {
+  id:number;
+  owner:  string;
+  balanace: number;
+
+  constructor(id:number, owner:string, balance:number) {
+    this.id = id;
+    this.owner = owner;
+    this.balanace = balance;
+  }
+  deposit(amount:number):void {
+    if(amount <= 0)
+      throw new Error("Invalid amount");
+    this.balanace += amount;
+  }
+}
