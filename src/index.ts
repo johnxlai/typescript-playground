@@ -273,17 +273,44 @@ let is_published: boolean = true;
 // seats['A1'] = 'John';
 
 //Static property
-class Ride {
-  private static _activeRides: number = 0;
+// class Ride {
+//   private static _activeRides: number = 0;
 
-  start() { Ride._activeRides++;}
-  stop() {Ride._activeRides--;}
+//   start() { Ride._activeRides++;}
+//   stop() {Ride._activeRides--;}
 
-  static get activeRides() {
-    return Ride._activeRides
+//   static get activeRides() {
+//     return Ride._activeRides
+//   }
+// }
+
+// let ride1 = new Ride();
+// ride1.start();
+// console.log(Ride.activeRides);
+
+//Inheitance
+class Person {
+  constructor(public firstName: string, public lastName: string) {}
+
+  get fullName() {
+    return `${this.firstName} ${this.lastName}`;
+  }
+
+  walk() {
+    console.log('Walking');
   }
 }
 
-let ride1 = new Ride();
-ride1.start();
-console.log(Ride.activeRides);
+class Student extends Person {
+  constructor(public studentId:number, firstName : string, lastName:string) {
+    super(firstName, lastName);
+  }
+
+  takeTest() {
+    console.log('Taking a Test');
+  }
+}
+
+const john = new Student(3, 'John' , ' Lai');
+console.log(john.walk());
+

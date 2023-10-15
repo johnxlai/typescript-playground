@@ -2,19 +2,27 @@
 let sales = 123456789;
 let course = 'TypeScript';
 let is_published = true;
-class Account {
-    constructor(id, owner, balance) {
-        this.id = id;
-        this.owner = owner;
-        this.balanace = balance;
+class Person {
+    constructor(firstName, lastName) {
+        this.firstName = firstName;
+        this.lastName = lastName;
     }
-    deposit(amount) {
-        if (amount <= 0)
-            throw new Error("Invalid amount");
-        this.balanace += amount;
+    get fullName() {
+        return `${this.firstName} ${this.lastName}`;
+    }
+    walk() {
+        console.log('Walking');
     }
 }
-let account = new Account(1, 'John', 0);
-account.deposit(100);
-console.log(account.balanace);
+class Student extends Person {
+    constructor(studentId, firstName, lastName) {
+        super(firstName, lastName);
+        this.studentId = studentId;
+    }
+    takeTest() {
+        console.log('Taking a Test');
+    }
+}
+const john = new Student(3, 'John', ' Lai');
+console.log(john.walk());
 //# sourceMappingURL=index.js.map
