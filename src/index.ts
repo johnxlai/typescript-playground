@@ -241,33 +241,49 @@ let is_published: boolean = true;
 // console.log(teacher.fullName);
 
 // ts classes
-class Account  {
-  nickname?: string;
+// class Account  {
+//   nickname?: string;
 
-  //parameter properties
-  constructor(
-      public readonly id:number,
-      public owner:string,
-      private _balance:number) {
-  }
-  deposit(amount:number):void {
-    if(amount <= 0)
-      throw new Error("Invalid amount");
-    this._balance += amount;
-  }
-  //getter and setters
-  get balance():number {
-    return this._balance;
+//   //parameter properties
+//   constructor(
+//       public readonly id:number,
+//       public owner:string,
+//       private _balance:number) {
+//   }
+//   deposit(amount:number):void {
+//     if(amount <= 0)
+//       throw new Error("Invalid amount");
+//     this._balance += amount;
+//   }
+//   //getter and setters
+//   get balance():number {
+//     return this._balance;
+//   }
+// }
+
+// let account = new Account(1, 'John', 0);
+// account.deposit(100);
+// console.log(account.balance);
+
+// //Index signature propertry
+// class SeatAssignment {
+//   [seatNumber: string] : string;
+// }
+// let seats = new SeatAssignment();
+// seats['A1'] = 'John';
+
+//Static property
+class Ride {
+  private static _activeRides: number = 0;
+
+  start() { Ride._activeRides++;}
+  stop() {Ride._activeRides--;}
+
+  static get activeRides() {
+    return Ride._activeRides
   }
 }
 
-let account = new Account(1, 'John', 0);
-account.deposit(100);
-console.log(account.balance);
-
-//Index signature propertry
-class SeatAssignment {
-  [seatNumber: string] : string;
-}
-let seats = new SeatAssignment();
-seats['A1'] = 'John';
+let ride1 = new Ride();
+ride1.start();
+console.log(Ride.activeRides);
