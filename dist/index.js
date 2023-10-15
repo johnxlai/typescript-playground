@@ -25,4 +25,24 @@ class Student extends Person {
 }
 const john = new Student(3, 'John', ' Lai');
 console.log(john.walk());
+class Teacher extends Person {
+    get fullName() {
+        return 'Professor ' + super.fullName;
+    }
+}
+class Principal extends Person {
+    get fullName() {
+        return 'Principal ' + super.fullName;
+    }
+}
+printNames([
+    new Student(1, 'mark', 'kong'),
+    new Teacher('Lucia', 'so'),
+    new Principal('Dre', 'Don'),
+]);
+function printNames(people) {
+    for (let person of people) {
+        console.log(person.fullName);
+    }
+}
 //# sourceMappingURL=index.js.map

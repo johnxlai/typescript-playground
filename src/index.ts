@@ -314,3 +314,29 @@ class Student extends Person {
 const john = new Student(3, 'John' , ' Lai');
 console.log(john.walk());
 
+//method overriding
+class Teacher extends Person {
+  override get fullName() {
+    return 'Professor ' + super.fullName;
+  }
+}
+
+class Principal extends Person{
+  override get fullName() {
+    return 'Principal ' + super.fullName;
+  }
+}
+
+
+printNames([
+  new Student(1, 'mark', 'kong'),
+  new Teacher('Lucia', 'so'),
+  new Principal( 'Dre', 'Don'),
+]);
+
+
+function printNames(people: Person[]) {
+  for (let person of people) {
+    console.log(person.fullName);
+  }
+}
