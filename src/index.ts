@@ -327,16 +327,35 @@ class Principal extends Person{
   }
 }
 
-
 printNames([
   new Student(1, 'mark', 'kong'),
   new Teacher('Lucia', 'so'),
   new Principal( 'Dre', 'Don'),
 ]);
 
-
 function printNames(people: Person[]) {
   for (let person of people) {
     console.log(person.fullName);
   }
 }
+
+
+//Protected
+// Private can only be used in the same class, Protected can be used in its child classes
+
+// Abstract Classes (it is uncooked, it cannot be initalized only be extended)
+abstract class Shape{
+  constructor(public color: string ){}
+  abstract render():void;
+}
+
+class Circle extends Shape {
+  constructor(public radius: number, color:string) {
+    super(color)
+  }
+  override render(): void {
+    console.log('render circle');
+  }
+}
+
+
