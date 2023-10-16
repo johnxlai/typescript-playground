@@ -45,4 +45,23 @@ function printNames(people) {
         console.log(person.fullName);
     }
 }
+class Shape {
+    constructor(color) {
+        this.color = color;
+    }
+}
+class Circle extends Shape {
+    constructor(radius, color) {
+        super(color);
+        this.radius = radius;
+    }
+    render() {
+        console.log('render circle');
+    }
+}
+class Calendar {
+    constructor(name) {
+        this.name = name;
+    }
+}
 //# sourceMappingURL=index.js.map
