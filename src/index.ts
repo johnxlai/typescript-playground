@@ -365,24 +365,32 @@ class Circle extends Shape {
 //   abstract removeEvent():void;
 // }
 
-interface Calendar {
-  name:string;
-  addEvent():void;
-  removeEvent():void;
+// interface Calendar {
+//   name:string;
+//   addEvent():void;
+//   removeEvent():void;
+// }
+
+// interface CloudCalendar extends Calendar {
+//   sync():void;
+// }
+
+// class GoogleCalendar implements Calendar{
+//   constructor(public name: string){}
+
+//   addEvent(): void {
+//     throw new Error("Method not implemented.");
+//   }
+//   removeEvent(): void {
+//     throw new Error("Method not implemented.");
+//   }
+
+// }
+
+// Generic Classes
+class KeyValuePair<K, V> {
+  constructor(public key:K, public value:V) {}
 }
-
-interface CloudCalendar extends Calendar {
-  sync():void;
-}
-
-class GoogleCalendar implements Calendar{
-  constructor(public name: string){}
-
-  addEvent(): void {
-    throw new Error("Method not implemented.");
-  }
-  removeEvent(): void {
-    throw new Error("Method not implemented.");
-  }
-
-}
+let pair = new KeyValuePair<number, string>(1, 'a');
+//if you dont supply the argument, ts will look at what you're passing and auto complie the type
+let pairString = new KeyValuePair('1', 'a');
