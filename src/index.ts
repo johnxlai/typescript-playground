@@ -394,3 +394,17 @@ class KeyValuePair<K, V> {
 let pair = new KeyValuePair<number, string>(1, 'a');
 //if you dont supply the argument, ts will look at what you're passing and auto complie the type
 let pairString = new KeyValuePair('1', 'a');
+
+// Generic Functions
+function wrapInArray<T>(value:T) {
+  return [value];
+}
+
+class ArrayUtils {
+  //static methods belongs to the class, does not belong to the instance
+  static wrapInArray<T>(value:T) {
+    return [value];
+  }
+}
+
+let numbers = ArrayUtils.wrapInArray(1);
