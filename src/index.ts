@@ -202,234 +202,285 @@ let is_published: boolean = true;
 // console.log(Ride.activeRides);
 
 
-//Inheritance
+// //Inheritance
+// // class Person {
+// //   constructor(public firstName: string, public lastName: string) {
+// //   }
+// //   get fullName() {
+// //     return this.firstName + ' ' + this.lastName;
+// //   }
+
+// //   walk() {
+// //     console.log('walking');
+// //   }
+// // }
+
+// // class Student extends Person {
+// //   constructor( public studentId: number, firstName: string, lastName: string) {
+// //     super(firstName, lastName);
+// //   }
+// //   takeTest() {
+// //     console.log('taking test');
+// //   }
+// // }
+
+
+// // let student = new Student(1, 'John', 'john@gmail.com');
+// // student.takeTest();
+
+
+// // //method overriding
+// // class Teacher extends Person {
+// //   override get fullName()  {
+// //     return 'Professor' + super.fullName;
+// //   }
+// // }
+
+
+// // let teacher = new Teacher('John', 'Doe');
+// // console.log(teacher.fullName);
+
+// // ts classes
+// // class Account  {
+// //   nickname?: string;
+
+// //   //parameter properties
+// //   constructor(
+// //       public readonly id:number,
+// //       public owner:string,
+// //       private _balance:number) {
+// //   }
+// //   deposit(amount:number):void {
+// //     if(amount <= 0)
+// //       throw new Error("Invalid amount");
+// //     this._balance += amount;
+// //   }
+// //   //getter and setters
+// //   get balance():number {
+// //     return this._balance;
+// //   }
+// // }
+
+// // let account = new Account(1, 'John', 0);
+// // account.deposit(100);
+// // console.log(account.balance);
+
+// // //Index signature propertry
+// // class SeatAssignment {
+// //   [seatNumber: string] : string;
+// // }
+// // let seats = new SeatAssignment();
+// // seats['A1'] = 'John';
+
+// //Static property
+// // class Ride {
+// //   private static _activeRides: number = 0;
+
+// //   start() { Ride._activeRides++;}
+// //   stop() {Ride._activeRides--;}
+
+// //   static get activeRides() {
+// //     return Ride._activeRides
+// //   }
+// // }
+
+// // let ride1 = new Ride();
+// // ride1.start();
+// // console.log(Ride.activeRides);
+
+// //Inheitance
 // class Person {
-//   constructor(public firstName: string, public lastName: string) {
-//   }
+//   constructor(public firstName: string, public lastName: string) {}
+
 //   get fullName() {
-//     return this.firstName + ' ' + this.lastName;
+//     return `${this.firstName} ${this.lastName}`;
 //   }
 
 //   walk() {
-//     console.log('walking');
+//     console.log('Walking');
 //   }
 // }
 
 // class Student extends Person {
-//   constructor( public studentId: number, firstName: string, lastName: string) {
+//   constructor(public studentId:number, firstName : string, lastName:string) {
 //     super(firstName, lastName);
 //   }
+
 //   takeTest() {
-//     console.log('taking test');
+//     console.log('Taking a Test');
 //   }
 // }
 
-
-// let student = new Student(1, 'John', 'john@gmail.com');
-// student.takeTest();
-
+// const john = new Student(3, 'John' , ' Lai');
+// console.log(john.walk());
 
 // //method overriding
 // class Teacher extends Person {
-//   override get fullName()  {
-//     return 'Professor' + super.fullName;
+//   override get fullName() {
+//     return 'Professor ' + super.fullName;
+//   }
+// }
+
+// class Principal extends Person{
+//   override get fullName() {
+//     return 'Principal ' + super.fullName;
+//   }
+// }
+
+// printNames([
+//   new Student(1, 'mark', 'kong'),
+//   new Teacher('Lucia', 'so'),
+//   new Principal( 'Dre', 'Don'),
+// ]);
+
+// function printNames(people: Person[]) {
+//   for (let person of people) {
+//     console.log(person.fullName);
 //   }
 // }
 
 
-// let teacher = new Teacher('John', 'Doe');
-// console.log(teacher.fullName);
+// //Protected
+// // Private can only be used in the same class, Protected can be used in its child classes
 
-// ts classes
-// class Account  {
-//   nickname?: string;
+// // Abstract Classes (it is uncooked, it cannot be initalized only be extended)
+// abstract class Shape{
+//   constructor(public color: string ){}
+//   abstract render():void;
+// }
 
-//   //parameter properties
-//   constructor(
-//       public readonly id:number,
-//       public owner:string,
-//       private _balance:number) {
+// class Circle extends Shape {
+//   constructor(public radius: number, color:string) {
+//     super(color)
 //   }
-//   deposit(amount:number):void {
-//     if(amount <= 0)
-//       throw new Error("Invalid amount");
-//     this._balance += amount;
-//   }
-//   //getter and setters
-//   get balance():number {
-//     return this._balance;
+//   override render(): void {
+//     console.log('render circle');
 //   }
 // }
 
-// let account = new Account(1, 'John', 0);
-// account.deposit(100);
-// console.log(account.balance);
+// // abstract class Calendar {
+// //   constructor (public name:string) {}
 
-// //Index signature propertry
-// class SeatAssignment {
-//   [seatNumber: string] : string;
+// //   abstract addEvent():void;
+// //   abstract removeEvent():void;
+// // }
+
+// // interface Calendar {
+// //   name:string;
+// //   addEvent():void;
+// //   removeEvent():void;
+// // }
+
+// // interface CloudCalendar extends Calendar {
+// //   sync():void;
+// // }
+
+// // class GoogleCalendar implements Calendar{
+// //   constructor(public name: string){}
+
+// //   addEvent(): void {
+// //     throw new Error("Method not implemented.");
+// //   }
+// //   removeEvent(): void {
+// //     throw new Error("Method not implemented.");
+// //   }
+
+// // }
+
+// // Generic Classes
+// class KeyValuePair<K, V> {
+//   constructor(public key:K, public value:V) {}
 // }
-// let seats = new SeatAssignment();
-// seats['A1'] = 'John';
+// let pair = new KeyValuePair<number, string>(1, 'a');
+// //if you dont supply the argument, ts will look at what you're passing and auto complie the type
+// let pairString = new KeyValuePair('1', 'a');
 
-//Static property
-// class Ride {
-//   private static _activeRides: number = 0;
+// // Generic Functions
+// function wrapInArray<T>(value:T) {
+//   return [value];
+// }
 
-//   start() { Ride._activeRides++;}
-//   stop() {Ride._activeRides--;}
-
-//   static get activeRides() {
-//     return Ride._activeRides
+// class ArrayUtils {
+//   //static methods belongs to the class, does not belong to the instance
+//   static wrapInArray<T>(value:T) {
+//     return [value];
 //   }
 // }
 
-// let ride1 = new Ride();
-// ride1.start();
-// console.log(Ride.activeRides);
+// let numbers = ArrayUtils.wrapInArray(1);
+// //
 
-//Inheitance
-class Person {
-  constructor(public firstName: string, public lastName: string) {}
-
-  get fullName() {
-    return `${this.firstName} ${this.lastName}`;
-  }
-
-  walk() {
-    console.log('Walking');
-  }
-}
-
-class Student extends Person {
-  constructor(public studentId:number, firstName : string, lastName:string) {
-    super(firstName, lastName);
-  }
-
-  takeTest() {
-    console.log('Taking a Test');
-  }
-}
-
-const john = new Student(3, 'John' , ' Lai');
-console.log(john.walk());
-
-//method overriding
-class Teacher extends Person {
-  override get fullName() {
-    return 'Professor ' + super.fullName;
-  }
-}
-
-class Principal extends Person{
-  override get fullName() {
-    return 'Principal ' + super.fullName;
-  }
-}
-
-printNames([
-  new Student(1, 'mark', 'kong'),
-  new Teacher('Lucia', 'so'),
-  new Principal( 'Dre', 'Don'),
-]);
-
-function printNames(people: Person[]) {
-  for (let person of people) {
-    console.log(person.fullName);
-  }
-}
-
-
-//Protected
-// Private can only be used in the same class, Protected can be used in its child classes
-
-// Abstract Classes (it is uncooked, it cannot be initalized only be extended)
-abstract class Shape{
-  constructor(public color: string ){}
-  abstract render():void;
-}
-
-class Circle extends Shape {
-  constructor(public radius: number, color:string) {
-    super(color)
-  }
-  override render(): void {
-    console.log('render circle');
-  }
-}
-
-// abstract class Calendar {
-//   constructor (public name:string) {}
-
-//   abstract addEvent():void;
-//   abstract removeEvent():void;
+// //Genetric Interfaces
+// interface Result<T> {
+//   data: T | null;
+//   error: string | null;
 // }
 
-// interface Calendar {
-//   name:string;
-//   addEvent():void;
-//   removeEvent():void;
-// }
-
-// interface CloudCalendar extends Calendar {
-//   sync():void;
-// }
-
-// class GoogleCalendar implements Calendar{
-//   constructor(public name: string){}
-
-//   addEvent(): void {
-//     throw new Error("Method not implemented.");
+// function fetch<T>(url:string): Result<T>{
+//   return {
+//     data: null,
+//     error: null
 //   }
-//   removeEvent(): void {
-//     throw new Error("Method not implemented.");
-//   }
-
 // }
 
-// Generic Classes
-class KeyValuePair<K, V> {
-  constructor(public key:K, public value:V) {}
-}
-let pair = new KeyValuePair<number, string>(1, 'a');
-//if you dont supply the argument, ts will look at what you're passing and auto complie the type
-let pairString = new KeyValuePair('1', 'a');
+// interface User {
+//   username: string;
+// }
 
-// Generic Functions
-function wrapInArray<T>(value:T) {
-  return [value];
-}
+// interface Product {
+//   title:string;
+// }
 
-class ArrayUtils {
-  //static methods belongs to the class, does not belong to the instance
-  static wrapInArray<T>(value:T) {
-    return [value];
-  }
-}
+// fetch<User>('/users');
+// fetch<Product>('/users');
 
-let numbers = ArrayUtils.wrapInArray(1);
-//
+// // Generic Constraints
+// interface Person {
+//   name:string
+// }
+// class Customer {
+//   constructor(public name:string){}
+// }
 
-//Genetric Interfaces
-interface Result<T> {
-  data: T | null;
-  error: string | null;
-}
+// function echo<T extends Person>(value:T):T {
+//   return value;
+// }
+// function echo<T extends number | string>(value:T):T {
+//   return value;
+// }
 
-function fetch<T>(url:string): Result<T>{
-  return {
-    data: null,
-    error: null
-  }
-}
-
-interface User {
-  username: string;
-}
+// extend generic Classes
 
 interface Product {
-  title:string;
+  name: string;
+  price:number;
 }
 
-fetch<User>('/users');
-fetch<Product>('/users');
+class Store<T> {
+  protected _objects: T[] = [];
+
+   add(obj:T): void {
+    this._objects.push(obj);
+  }
+}
+
+class CompressibleStore<T> extends Store<T> {
+  add(obj:T): void {
+    console.log('Compressing');
+    super.add(obj);
+  }
+}
+
+// restrict the generic type parameter
+class SearchableStore<T extends {name:string }> extends Store<T> {
+  find(name:string): T | undefined {
+    return this._objects.find(obj => obj.name === name);
+  }
+}
+
+//Fix the generic type parameter
+class ProductStore extends Store<Product> {
+  filterByCatergory(category:string): Product[] {
+    return [];
+  }
+}
