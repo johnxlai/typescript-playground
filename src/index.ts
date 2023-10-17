@@ -2,6 +2,8 @@
 // let course: string = 'TypeScript';
 // let is_published: boolean = true;
 
+import { Circle } from "./shapes";
+
 // // dont need to annotate types, typescript will infer it
 
 // // let sales = 123_456_5789;
@@ -494,3 +496,9 @@
 //     console.log('Inserting in DOM');
 //   }
 // }
+
+
+
+
+
+
