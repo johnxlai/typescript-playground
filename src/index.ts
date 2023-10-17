@@ -496,5 +496,9 @@
 //   }
 // }
 
-import { Circle, Square } from './shape';
-const circle = new Circle(1);
+// import { Circle, Square } from './shapes';
+// const circle = new Circle(1);
+
+import { calculateTax } from './tax';
+
+console.log(calculateTax(11000));
