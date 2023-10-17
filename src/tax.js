@@ -1,6 +1,6 @@
 /**
  *
- * @param {number} amount
+ * @param {number} amount -- Net Salary after expenses
  * @returns {number}
  */
 export function calculateTax(amount) {
