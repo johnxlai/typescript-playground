@@ -2,7 +2,6 @@
 // let course: string = 'TypeScript';
 // let is_published: boolean = true;
 
-import { Circle } from "./shapes";
 
 // // dont need to annotate types, typescript will infer it
 
@@ -497,7 +496,5 @@ import { Circle } from "./shapes";
 //   }
 // }
 
-
-import * as shapes from './shapes';
-const circle = new shapes.Circle(1);
-
+import { Circle, Square } from './shape';
+const circle = new Circle(1);
