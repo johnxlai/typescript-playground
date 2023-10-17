@@ -487,13 +487,10 @@
 
 
 // Decorators
-function Component(constructor: Function) {
-  console.log('Component');
-  constructor.prototype.unuqyeId = Date.now();
-  constructor.prototype.insertInDom = () => {
-    console.log('Inserting in DOM');
-  }
-}
-
-@Component
-class Profile
+// function Component(constructor: Function) {
+//   console.log('Component');
+//   constructor.prototype.unuqyeId = Date.now();
+//   constructor.prototype.insertInDom = () => {
+//     console.log('Inserting in DOM');
+//   }
+// }
